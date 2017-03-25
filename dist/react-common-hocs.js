@@ -4,12 +4,15 @@
 	(factory((global.reactCommonHocs = global.reactCommonHocs || {}),global.recompose));
 }(this, (function (exports,recompose) { 'use strict';
 
-var loadable = recompose.branch(function (_ref) {
-  var status = _ref.status;
-  return ['init', 'pending'].includes(status);
-}, recompose.renderComponent(function (props) {
-  return props.loaderComponent ? props.loaderComponent(props) : null;
-}));
+var loadable = (function (options) {
+  console.log(options);
+  return recompose.branch(function (_ref) {
+    var status = _ref.status;
+    return ['init', 'pending'].includes(status);
+  }, recompose.renderComponent(function (props) {
+    return options.loaderComponent ? options.loaderComponent(props) : null;
+  }));
+});
 
 var errorable = recompose.branch(function (_ref) {
   var status = _ref.status;
@@ -18,7 +21,11 @@ var errorable = recompose.branch(function (_ref) {
   return props.errorComponent ? props.errorComponent(props) : null;
 }));
 
-var index = recompose.compose(errorable, loadable);
+var index = (function (_ref) {
+  var errorComponent = _ref.errorComponent,
+      loaderComponent = _ref.loaderComponent;
+  return recompose.compose(errorable, loadable({ loaderComponent: loaderComponent }));
+});
 
 var index$1 = recompose.compose(recompose.withState('toggled', 'setToggle', false), recompose.withHandlers({
   toggleOn: function toggleOn(_ref) {

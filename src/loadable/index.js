@@ -1,9 +1,9 @@
 import {branch, renderComponent} from 'recompose'
 
-export default branch(
+export default options => branch(
   ({status}) => ['init', 'pending'].includes(status),
-  renderComponent(props => props.loaderComponent
-    ? props.loaderComponent(props)
+  renderComponent(props => options.loaderComponent
+    ? options.loaderComponent(props)
     : null
   )
 )

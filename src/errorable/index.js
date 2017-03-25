@@ -1,9 +1,9 @@
 import {branch, renderComponent} from 'recompose'
 
-export default branch(
+export default options => branch(
   ({status}) => ['failure'].includes(status),
-  renderComponent(props => props.errorComponent
-    ? props.errorComponent(props)
+  renderComponent(props => options.errorComponent
+    ? options.errorComponent(props)
     : null
   )
 )
