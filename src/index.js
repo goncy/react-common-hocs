@@ -1,11 +1,11 @@
 import async from './async'
 import errorable from './errorable'
 import loadable from './loadable'
-import withToggle from './withToggle'
+import toggleable from './toggleable'
 
 export {
   async,
   errorable,
   loadable,
-  withToggle
+  toggleable
 }
