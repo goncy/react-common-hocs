@@ -5,7 +5,6 @@
   "main": "dist/react-common-hocs.js",
   "module": "dist/react-common-hocs.mjs",
   "author": "goncy",
-  "private": false,
   "license": "MIT",
   "repository": {
     "type": "git",
