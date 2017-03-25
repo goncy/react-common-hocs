@@ -34,6 +34,12 @@ export default loadable({loaderComponent: Loader})(MyComponent)
 export default errorable({errorComponent: ErrorComponent})(MyComponent)
 export default toggleable(MyComponent)
 export default async({loaderComponent: Loader, errorComponent: ErrorComponent})(MyComponent)
+...
+
+// They are composable
+const alwaysSameLoaderAndErrorComponent = async({loaderComponent: Loader, errorComponent: ErrorComponent})
+
+export default alwaysSameLoaderAndErrorComponent(MyComponent)
 ```
 
 ### `loadable`

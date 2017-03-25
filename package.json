@@ -6,6 +6,18 @@
   "module": "dist/react-common-hocs.mjs",
   "author": "goncy",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goncy/react-common-hocs.git"
+  },
+  "homepage": "https://github.com/goncy/react-common-hocs",
+  "keywords": [
+    "react",
+    "hoc",
+    "recompose",
+    "redux",
+    "async"
+  ],
   "scripts": {
     "build": "rollup -c"
   },
