@@ -1,7 +1,6 @@
 import { branch, compose, renderComponent, withHandlers, withState } from 'recompose';
 
 var loadable = (function (options) {
-  console.log(options);
   return branch(function (_ref) {
     var status = _ref.status;
     return ['init', 'pending'].includes(status);
@@ -10,17 +9,19 @@ var loadable = (function (options) {
   }));
 });
 
-var errorable = branch(function (_ref) {
-  var status = _ref.status;
-  return ['failure'].includes(status);
-}, renderComponent(function (props) {
-  return props.errorComponent ? props.errorComponent(props) : null;
-}));
+var errorable = (function (options) {
+  return branch(function (_ref) {
+    var status = _ref.status;
+    return ['failure'].includes(status);
+  }, renderComponent(function (props) {
+    return options.errorComponent ? options.errorComponent(props) : null;
+  }));
+});
 
 var index = (function (_ref) {
   var errorComponent = _ref.errorComponent,
       loaderComponent = _ref.loaderComponent;
-  return compose(errorable, loadable({ loaderComponent: loaderComponent }));
+  return compose(errorable({ errorComponent: errorComponent }), loadable({ loaderComponent: loaderComponent }));
 });
 
 var index$1 = compose(withState('toggled', 'setToggle', false), withHandlers({

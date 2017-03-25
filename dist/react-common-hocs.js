@@ -5,7 +5,6 @@
 }(this, (function (exports,recompose) { 'use strict';
 
 var loadable = (function (options) {
-  console.log(options);
   return recompose.branch(function (_ref) {
     var status = _ref.status;
     return ['init', 'pending'].includes(status);
@@ -14,17 +13,19 @@ var loadable = (function (options) {
   }));
 });
 
-var errorable = recompose.branch(function (_ref) {
-  var status = _ref.status;
-  return ['failure'].includes(status);
-}, recompose.renderComponent(function (props) {
-  return props.errorComponent ? props.errorComponent(props) : null;
-}));
+var errorable = (function (options) {
+  return recompose.branch(function (_ref) {
+    var status = _ref.status;
+    return ['failure'].includes(status);
+  }, recompose.renderComponent(function (props) {
+    return options.errorComponent ? options.errorComponent(props) : null;
+  }));
+});
 
 var index = (function (_ref) {
   var errorComponent = _ref.errorComponent,
       loaderComponent = _ref.loaderComponent;
-  return recompose.compose(errorable, loadable({ loaderComponent: loaderComponent }));
+  return recompose.compose(errorable({ errorComponent: errorComponent }), loadable({ loaderComponent: loaderComponent }));
 });
 
 var index$1 = recompose.compose(recompose.withState('toggled', 'setToggle', false), recompose.withHandlers({
