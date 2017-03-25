@@ -1,6 +1,4 @@
 # React common hocs (`react-common-hocs`)
-[![Build Status](https://travis-ci.org/goncy/react-common-hocs.svg?branch=master)](https://travis-ci.org/goncy/react-common-hocs)
-[![Coverage Status](https://coveralls.io/repos/github/goncy/react-common-hocs/badge.svg?branch=master)](https://coveralls.io/github/goncy/react-common-hocs?branch=master)
 
 A set of common components for React
 
