@@ -15,28 +15,38 @@ React common hocs is a set of React HOCs mainly for components who manage async 
 // Creating an action
 import {loadable, errorable, async, toggleable} from 'react-common-hocs'
 
+const Loader = props => (
+  // All component logic
+  ...
+)
+
+const ErrorComponent = props => (
+  // All component logic
+  ...
+)
+
 const MyComponent = props => (
   // All component logic
   ...
 )
 ...
-export default loadable(MyComponent)
-export default errorable(MyComponent)
+export default loadable({loaderComponent: Loader})(MyComponent)
+export default errorable({errorComponent: ErrorComponent})(MyComponent)
 export default toggleable(MyComponent)
-export default async(MyComponent)
+export default async({loaderComponent: Loader, errorComponent: ErrorComponent})(MyComponent)
 ```
 
 ### `loadable`
-Takes the **status** prop, if its `init` or `pending`, shows the **loaderComponent** prop
+Takes the **status** prop, if its `init` or `pending`, shows the **loaderComponent** option
 
 ### `errorable`
-Takes the **status** prop, if its `failure` displays the **errorComponent** prop
+Takes the **status** prop, if its `failure` displays the **errorComponent** option
 
 ### `toggleable`
 Adds a **toggled** boolean prop with two handlers, **toggleOff** and **toggleOn**
 
 ### `async`
-Takes the **status** prop, if its `init` or `pending`, shows the **loaderComponent** prop, if its `failure`, shows the **errorComponent**
+Takes the **status** prop, if its `init` or `pending`, shows the **loaderComponent** option, if its `failure`, shows the **errorComponent** option
 
 
 ## Why
