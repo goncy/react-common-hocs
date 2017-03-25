@@ -31,5 +31,5 @@ var index$1 = compose(withState('toggled', 'setToggle', false), withHandlers({
   }
 }));
 
-export { index as async, errorable, loadable, index$1 as withToggle };
+export { index as async, errorable, loadable, index$1 as toggleable };
 //# sourceMappingURL=react-common-hocs.mjs.map

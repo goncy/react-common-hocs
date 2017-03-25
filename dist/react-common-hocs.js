@@ -38,7 +38,7 @@ var index$1 = recompose.compose(recompose.withState('toggled', 'setToggle', fals
 exports.async = index;
 exports.errorable = errorable;
 exports.loadable = loadable;
-exports.withToggle = index$1;
+exports.toggleable = index$1;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
