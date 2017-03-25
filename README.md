@@ -60,6 +60,7 @@ yarn add react-common-hocs
 npm install --save react-common-hocs
 ```
 
+
 ## Contributors
 Simply create a pull request :)
 * Code style: **Standard**
