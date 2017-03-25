@@ -2,6 +2,9 @@
 
 A set of common components for React
 
+## Demo
+https://goncy.github.io/react-common-hocs/
+
 
 ## What
 React common hocs is a set of React HOCs mainly for components who manage async data
