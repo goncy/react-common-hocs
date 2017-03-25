@@ -60,16 +60,6 @@ yarn add react-common-hocs
 npm install --save react-common-hocs
 ```
 
-
-## Tests
-```sh
-// mocha tests
-yarn test
-// istanbul coverage
-yarn cover
-```
-
-
 ## Contributors
 Simply create a pull request :)
 * Code style: **Standard**
